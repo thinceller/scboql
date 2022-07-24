@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Page {
+  accessed: Float!
+  commitId: String!
+  created: Float!
+  descriptions: [String!]!
+  id: String!
+  image: String!
+  lastAccessed: Float
+  linked: Float!
+  pageRank: Float!
+  pin: Float!
+  snapshotCreated: Float!
+  title: String!
+  updated: Float!
+  user: User!
+  views: Float!
+}
+
+type Project {
+  created: Float!
+  displayName: String!
+  googleAnalyticsCode: String!
+  gyazoTeamsName: String!
+  id: ID!
+  image: String
+  loginStrategies: [String!]!
+  name: String!
+  publicVisible: Boolean!
+  theme: String!
+  updated: Float!
+}
+
+type ProjectWithPage {
+  count: Float!
+  limit: Float!
+  pages: [Page!]!
+  projectName: String!
+  skip: Float!
+}
+
+type Query {
+  """プロジェクトの情報を取得する"""
+  getByProjectName(projectName: String!): Project!
+
+  """プロジェクト名からページ一覧を取得する"""
+  getPagesByProjectName(projectName: String!): ProjectWithPage!
+}
+
+type User {
+  id: String!
+}
